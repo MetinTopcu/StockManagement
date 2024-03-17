@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "stockmanagement.order.api": "StartDebugging",
+        "stockmanagement.customer.api": "StartDebugging",
+        "stockmanagement.catalog.api": "StartDebugging",
+        "stockmanagement.basket.api": "StartDebugging",
+        "stockmanagement.authentication.api": "StartDebugging"
+      }
+    }
+  }
+}

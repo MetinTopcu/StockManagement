@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  stockmanagement.order.api:
+    image: ${DOCKER_REGISTRY-}stockmanagementorderapi
+    build:
+      context: .
+      dockerfile: Services/Order/src/application/StockManagement.Order.API/Dockerfile
+
+  stockmanagement.customer.api:
+    image: ${DOCKER_REGISTRY-}stockmanagementcustomerapi
+    build:
+      context: .
+      dockerfile: Services/Customer/src/application/StockManagement.Customer.API/Dockerfile
+
+
+  stockmanagement.catalog.api:
+    image: ${DOCKER_REGISTRY-}stockmanagementcatalogapi
+    build:
+      context: .
+      dockerfile: Services/Catalog/src/application/StockManagement.Catalog.API/Dockerfile
+
+
+  stockmanagement.basket.api:
+    image: ${DOCKER_REGISTRY-}stockmanagementbasketapi
+    build:
+      context: .
+      dockerfile: Services/Basket/src/application/StockManagement.Basket.API/Dockerfile
+
+
+  stockmanagement.authentication.api:
+    image: ${DOCKER_REGISTRY-}stockmanagementauthenticationapi
+    build:
+      context: .
+      dockerfile: Services/Authentication/src/application/StockManagement.Authentication.API/Dockerfile
+
