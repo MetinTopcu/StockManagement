@@ -1,4 +1,4 @@
-﻿using StockManagement.Shared.Interfaces;
+﻿using StockManagement.Shared.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

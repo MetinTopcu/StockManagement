@@ -10,4 +10,11 @@
     <ProjectReference Include="..\..\..\..\..\..\Shared\StockManagement.Shared\StockManagement.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+    <Folder Include="Commands\" />
+    <Folder Include="RepositoryContracts\" />
+    <Folder Include="Queries\" />
+  </ItemGroup>
+
 </Project>
