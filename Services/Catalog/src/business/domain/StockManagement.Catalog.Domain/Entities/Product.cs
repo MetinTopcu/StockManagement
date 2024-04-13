@@ -10,11 +10,15 @@ namespace StockManagement.Catalog.Domain.Entities
     public class Product : IAggregateRoot, IEntity<int>
     {
         public int Id { get; set; }
+        public string ProductName { get; set; } = string.Empty;
         public int BarkodNo { get; set; }
-        public decimal PurchasePrice { get; set; }
+        public double Amount { get; set; }
+        public DateTime ProductionDate { get; set; }
+        public DateTime ExpirationDate { get; set; }
+        public decimal Cost { get; set; }
         public decimal SalePrice { get; set; }
         public decimal KDV { get; set; }
-        public string Description { get; set; } = string.Empty;
+        public string ProductDescription { get; set; } = string.Empty;
         public DateTime CreatedTime { get; set; }
         public DateTime UpdatedTime { get; set; }
         public int CreatedUserId { get; set; }
