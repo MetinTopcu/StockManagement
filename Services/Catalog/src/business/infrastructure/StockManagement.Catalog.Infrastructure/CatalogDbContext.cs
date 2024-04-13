@@ -15,6 +15,7 @@ namespace StockManagement.Catalog.Infrastructure
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Unit> Units { get; set; }
+        public DbSet<ProductItem> ProductItems { get; set; }
 
         public CatalogDbContext(DbContextOptions options) : base(options)
         {
