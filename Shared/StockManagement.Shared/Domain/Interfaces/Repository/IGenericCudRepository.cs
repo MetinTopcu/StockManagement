@@ -11,9 +11,9 @@ namespace StockManagement.Shared.Domain.Interfaces.Repository
     {
         Task<T> InsertOneAsync(T entity, CancellationToken cancellationToken = default);
         Task<IEnumerable<T>> InsertManyAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default);
-        Task UpdateOneAsync(T entity, CancellationToken cancellationToken = default);
-        Task UpdateManyAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default);
-        Task DeleteOneAsync(T entity, CancellationToken cancellationToken = default);
-        Task DeleteManyAsync(IEnumerable<T> entities, CancellationToken cancellation = default);
+        void UpdateOne(T entity, CancellationToken cancellationToken = default);
+        void UpdateMany(IEnumerable<T> entities, CancellationToken cancellationToken = default);
+        void DeleteOne(T entity, CancellationToken cancellationToken = default);
+        void DeleteMany(IEnumerable<T> entities, CancellationToken cancellation = default);
     }
 }

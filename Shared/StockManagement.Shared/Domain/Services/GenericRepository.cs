@@ -58,42 +58,37 @@ namespace StockManagement.Shared.Domain.Services
             return (selector != null) ? (await _dbSet.AnyAsync(selector, cancellationToken)) : (await _dbSet.AnyAsync(cancellationToken));
         }
 
-        public Task DeleteManyAsync(IEnumerable<T> entities, CancellationToken cancellation = default)
+        public virtual async Task<T> InsertOneAsync(T entity, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            await _dbSet.AddAsync(entity, cancellationToken);
+            return entity;
         }
 
-        public Task DeleteOneAsync(T entity, CancellationToken cancellationToken = default)
+        public virtual async Task<IEnumerable<T>> InsertManyAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            await _dbSet.AddRangeAsync(entities, cancellationToken);
+            return entities;
+        }
+        public virtual void UpdateOne(T entity, CancellationToken cancellationToken = default)
+        {
+            _dbSet.Update(entity);
+        }
+        public virtual void UpdateMany(IEnumerable<T> entities, CancellationToken cancellationToken = default)
+        {
+            foreach(T entity in entities)
+            {
+                _dbSet.Update(entity);
+            }
+        }
+        public virtual void DeleteOne(T entity, CancellationToken cancellationToken = default)
+        {
+            _dbSet.Remove(entity);
         }
 
-        public Task<IEnumerable<T>> InsertManyAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
+        public virtual void DeleteMany(IEnumerable<T> entities, CancellationToken cancellation = default)
         {
-            throw new NotImplementedException();
+            _dbSet.RemoveRange(entities);
         }
-
-        public Task<T> InsertOneAsync(T entity, CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateManyAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateOneAsync(T entity, CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-
-
-
-
         private IQueryable<T> GetAll(CancellationToken cancellationToken = default)
         {
             return _dbSet.AsNoTracking().AsQueryable();
