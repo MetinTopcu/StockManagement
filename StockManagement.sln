@@ -137,13 +137,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Common.API", "Services\Common\src\application\StockManagement.Common.API\StockManagement.Common.API.csproj", "{4A4ED168-4AF6-4DE1-BE78-621DB3E3E611}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Common.Application.Contracts", "Services\Common\src\business\application\StockManagement.Common.ApplicationContracts\StockManagement.Common.Application.Contracts.csproj", "{9255C9D3-BDF3-4A62-899D-90BDC270EC48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Common.ApplicationContracts", "Services\Common\src\business\application\StockManagement.Common.ApplicationContracts\StockManagement.Common.ApplicationContracts.csproj", "{9255C9D3-BDF3-4A62-899D-90BDC270EC48}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Common.Application", "Services\Common\src\business\application\StockManagement.Common.Application\StockManagement.Common.Application.csproj", "{ABB4D90F-14E0-45FE-83BD-3310363C9A0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Common.Domain", "Services\Common\src\business\domain\StockManagement.Common.Domain\StockManagement.Common.Domain.csproj", "{93751142-33E1-468F-A39A-FF1659B0CF98}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Common.Infrastructure", "Services\Common\src\business\infrastructure\StockManagement.Common.Infrastructure\StockManagement.Common.Infrastructure.csproj", "{A03F2A05-6C39-49B9-819D-A46BD77191FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Basket.ApplicationContracts", "Services\Basket\src\business\application\StockManagement.Basket.ApplicationContracts\StockManagement.Basket.ApplicationContracts.csproj", "{B3EDCDD0-C152-45AC-B9EF-C77D013CF742}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Catalog.ApplicationContracts", "Services\Catalog\src\business\application\StockManagement.Catalog.ApplicationContracts\StockManagement.Catalog.ApplicationContracts.csproj", "{586307A3-3E6A-495C-A036-2937D26C8AE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Customer.ApplicationContracts", "Services\Customer\src\business\application\StockManagement.Customer.ApplicationContracts\StockManagement.Customer.ApplicationContracts.csproj", "{E0CE36A9-2EFE-4C1B-9D82-ADE03E2F95EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Order.ApplicationContracts", "Services\Order\src\business\application\StockManagement.Order.ApplicationContracts\StockManagement.Order.ApplicationContracts.csproj", "{2D9DDD07-2FB1-4B19-A6F2-642B21F57017}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.User.ApplicationContracts", "Services\User\src\business\application\StockManagement.User.ApplicationContracts\StockManagement.User.ApplicationContracts.csproj", "{DC4BBBAC-DF83-4F78-9AE7-C9C6FDE7B8EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -259,6 +269,26 @@ Global
 		{A03F2A05-6C39-49B9-819D-A46BD77191FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A03F2A05-6C39-49B9-819D-A46BD77191FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A03F2A05-6C39-49B9-819D-A46BD77191FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3EDCDD0-C152-45AC-B9EF-C77D013CF742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3EDCDD0-C152-45AC-B9EF-C77D013CF742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3EDCDD0-C152-45AC-B9EF-C77D013CF742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3EDCDD0-C152-45AC-B9EF-C77D013CF742}.Release|Any CPU.Build.0 = Release|Any CPU
+		{586307A3-3E6A-495C-A036-2937D26C8AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{586307A3-3E6A-495C-A036-2937D26C8AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{586307A3-3E6A-495C-A036-2937D26C8AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{586307A3-3E6A-495C-A036-2937D26C8AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0CE36A9-2EFE-4C1B-9D82-ADE03E2F95EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0CE36A9-2EFE-4C1B-9D82-ADE03E2F95EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0CE36A9-2EFE-4C1B-9D82-ADE03E2F95EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0CE36A9-2EFE-4C1B-9D82-ADE03E2F95EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D9DDD07-2FB1-4B19-A6F2-642B21F57017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D9DDD07-2FB1-4B19-A6F2-642B21F57017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D9DDD07-2FB1-4B19-A6F2-642B21F57017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D9DDD07-2FB1-4B19-A6F2-642B21F57017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC4BBBAC-DF83-4F78-9AE7-C9C6FDE7B8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC4BBBAC-DF83-4F78-9AE7-C9C6FDE7B8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC4BBBAC-DF83-4F78-9AE7-C9C6FDE7B8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC4BBBAC-DF83-4F78-9AE7-C9C6FDE7B8EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -332,6 +362,11 @@ Global
 		{ABB4D90F-14E0-45FE-83BD-3310363C9A0C} = {055736EA-8142-4662-8B99-D1A0574870F9}
 		{93751142-33E1-468F-A39A-FF1659B0CF98} = {22C63F5F-A59A-4383-AA09-87FB4B4D17F7}
 		{A03F2A05-6C39-49B9-819D-A46BD77191FD} = {0AB565E8-E88C-4175-8DF6-3DA8092BFCAD}
+		{B3EDCDD0-C152-45AC-B9EF-C77D013CF742} = {BF94D0D0-2DEE-4732-9FC7-3AC33B313917}
+		{586307A3-3E6A-495C-A036-2937D26C8AE7} = {9CDFF17B-3570-4B15-96E6-21A74A6AD816}
+		{E0CE36A9-2EFE-4C1B-9D82-ADE03E2F95EC} = {288AD185-8E11-424B-8962-237BB3111DCC}
+		{2D9DDD07-2FB1-4B19-A6F2-642B21F57017} = {84FC6B69-F6BC-4785-A51C-5875C09118B3}
+		{DC4BBBAC-DF83-4F78-9AE7-C9C6FDE7B8EF} = {691102CD-2562-4E99-B816-36A66E91F2FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6802F4F9-C0F3-4314-B99B-0E4272854BF7}
