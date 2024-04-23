@@ -13,7 +13,7 @@ namespace StockManagement.Catalog.Domain.Entities
         public DateTime ProductionDate { get; set; }
         public DateTime ExpirationDate { get; set; }
         public DateTime AddedTime { get; set; }
-        public int AddedUserId { get; set; }
+        public Guid AddedUserId { get; set; }
 
 
     }

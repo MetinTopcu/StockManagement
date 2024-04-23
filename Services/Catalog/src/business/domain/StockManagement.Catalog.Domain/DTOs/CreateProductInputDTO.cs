@@ -14,8 +14,6 @@ namespace StockManagement.Catalog.Domain.DTOs
         public decimal SalePrice { get; set; }
         public decimal KDV { get; set; }
         public string ProductDescription { get; set; } = string.Empty;
-        public int CreatedUserId { get; set; }
-        public int UpdatedUserId { get; set; }
         public string Picture { get; set; } = string.Empty;
         public int CategoryId { get; set; }
         public int BrandId { get; set; }

@@ -18,8 +18,8 @@ namespace StockManagement.Catalog.Domain.Entities
         public string ProductDescription { get; set; } = string.Empty;
         public DateTime CreatedTime { get; set; }
         public DateTime UpdatedTime { get; set; }
-        public int CreatedUserId { get; set; }
-        public int UpdatedUserId { get; set; }
+        public Guid CreatedUserId { get; set; }
+        public Guid UpdatedUserId { get; set; }
         public string Picture { get; set; } = string.Empty;
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
