@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\domain\StockManagement.Authentication.Domain\StockManagement.Authentication.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

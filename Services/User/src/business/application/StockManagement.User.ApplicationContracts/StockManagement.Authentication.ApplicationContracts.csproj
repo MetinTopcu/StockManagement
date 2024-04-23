@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\Shared\StockManagement.Shared\StockManagement.Shared.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Authentication\src\business\infrastructure\StockManagement.Authentication.Infrastructure\StockManagement.Authentication.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

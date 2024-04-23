@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Order.Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Order.Domain", "Services\Order\src\business\domain\StockManagement.Order.Domain\StockManagement.Order.Domain.csproj", "{DC0ECD92-FA82-4FC3-8685-8CE737DBBC80}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User", "User", "{65AAC4AF-C449-4ABB-8464-A4D718B72AE8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{65AAC4AF-C449-4ABB-8464-A4D718B72AE8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4792E338-A6D6-4D22-B25A-7DF422E729E4}"
 EndProject
@@ -43,11 +43,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.User.API", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "application", "application", "{691102CD-2562-4E99-B816-36A66E91F2FA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.User.Application", "Services\Authentication\src\business\application\StockManagement.Authentication.Application\StockManagement.User.Application.csproj", "{52B25FB8-ED39-4490-97D1-3788D5AD3932}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Authentication.Application", "Services\Authentication\src\business\application\StockManagement.Authentication.Application\StockManagement.Authentication.Application.csproj", "{52B25FB8-ED39-4490-97D1-3788D5AD3932}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.User.Domain", "Services\Authentication\src\business\domain\StockManagement.Authentication.Domain\StockManagement.User.Domain.csproj", "{BD21573A-3467-47C9-B0AC-E1B0ED018576}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Authentication.Domain", "Services\Authentication\src\business\domain\StockManagement.Authentication.Domain\StockManagement.Authentication.Domain.csproj", "{BD21573A-3467-47C9-B0AC-E1B0ED018576}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.User.Infrastructure", "Services\Authentication\src\business\infrastructure\StockManagement.Authentication.Infrastructure\StockManagement.User.Infrastructure.csproj", "{CD77923B-37F5-47BA-8D94-380FEEA35DE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Authentication.Infrastructure", "Services\Authentication\src\business\infrastructure\StockManagement.Authentication.Infrastructure\StockManagement.Authentication.Infrastructure.csproj", "{CD77923B-37F5-47BA-8D94-380FEEA35DE2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{D0CA23B5-14EF-4BD7-AE0A-FAB1E8603593}"
 EndProject
@@ -135,25 +135,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "domain", "domain", "{22C63F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{0AB565E8-E88C-4175-8DF6-3DA8092BFCAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Common.API", "Services\Common\src\application\StockManagement.Common.API\StockManagement.Common.API.csproj", "{4A4ED168-4AF6-4DE1-BE78-621DB3E3E611}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Common.API", "Services\Common\src\application\StockManagement.Common.API\StockManagement.Common.API.csproj", "{4A4ED168-4AF6-4DE1-BE78-621DB3E3E611}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Common.ApplicationContracts", "Services\Common\src\business\application\StockManagement.Common.ApplicationContracts\StockManagement.Common.ApplicationContracts.csproj", "{9255C9D3-BDF3-4A62-899D-90BDC270EC48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Common.ApplicationContracts", "Services\Common\src\business\application\StockManagement.Common.ApplicationContracts\StockManagement.Common.ApplicationContracts.csproj", "{9255C9D3-BDF3-4A62-899D-90BDC270EC48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Common.Application", "Services\Common\src\business\application\StockManagement.Common.Application\StockManagement.Common.Application.csproj", "{ABB4D90F-14E0-45FE-83BD-3310363C9A0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Common.Application", "Services\Common\src\business\application\StockManagement.Common.Application\StockManagement.Common.Application.csproj", "{ABB4D90F-14E0-45FE-83BD-3310363C9A0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Common.Domain", "Services\Common\src\business\domain\StockManagement.Common.Domain\StockManagement.Common.Domain.csproj", "{93751142-33E1-468F-A39A-FF1659B0CF98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Common.Domain", "Services\Common\src\business\domain\StockManagement.Common.Domain\StockManagement.Common.Domain.csproj", "{93751142-33E1-468F-A39A-FF1659B0CF98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Common.Infrastructure", "Services\Common\src\business\infrastructure\StockManagement.Common.Infrastructure\StockManagement.Common.Infrastructure.csproj", "{A03F2A05-6C39-49B9-819D-A46BD77191FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Common.Infrastructure", "Services\Common\src\business\infrastructure\StockManagement.Common.Infrastructure\StockManagement.Common.Infrastructure.csproj", "{A03F2A05-6C39-49B9-819D-A46BD77191FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Basket.ApplicationContracts", "Services\Basket\src\business\application\StockManagement.Basket.ApplicationContracts\StockManagement.Basket.ApplicationContracts.csproj", "{B3EDCDD0-C152-45AC-B9EF-C77D013CF742}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Basket.ApplicationContracts", "Services\Basket\src\business\application\StockManagement.Basket.ApplicationContracts\StockManagement.Basket.ApplicationContracts.csproj", "{B3EDCDD0-C152-45AC-B9EF-C77D013CF742}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Catalog.ApplicationContracts", "Services\Catalog\src\business\application\StockManagement.Catalog.ApplicationContracts\StockManagement.Catalog.ApplicationContracts.csproj", "{586307A3-3E6A-495C-A036-2937D26C8AE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Catalog.ApplicationContracts", "Services\Catalog\src\business\application\StockManagement.Catalog.ApplicationContracts\StockManagement.Catalog.ApplicationContracts.csproj", "{586307A3-3E6A-495C-A036-2937D26C8AE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Customer.ApplicationContracts", "Services\Customer\src\business\application\StockManagement.Customer.ApplicationContracts\StockManagement.Customer.ApplicationContracts.csproj", "{E0CE36A9-2EFE-4C1B-9D82-ADE03E2F95EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Customer.ApplicationContracts", "Services\Customer\src\business\application\StockManagement.Customer.ApplicationContracts\StockManagement.Customer.ApplicationContracts.csproj", "{E0CE36A9-2EFE-4C1B-9D82-ADE03E2F95EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Order.ApplicationContracts", "Services\Order\src\business\application\StockManagement.Order.ApplicationContracts\StockManagement.Order.ApplicationContracts.csproj", "{2D9DDD07-2FB1-4B19-A6F2-642B21F57017}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Order.ApplicationContracts", "Services\Order\src\business\application\StockManagement.Order.ApplicationContracts\StockManagement.Order.ApplicationContracts.csproj", "{2D9DDD07-2FB1-4B19-A6F2-642B21F57017}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.User.ApplicationContracts", "Services\User\src\business\application\StockManagement.User.ApplicationContracts\StockManagement.User.ApplicationContracts.csproj", "{DC4BBBAC-DF83-4F78-9AE7-C9C6FDE7B8EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Authentication.ApplicationContracts", "Services\User\src\business\application\StockManagement.User.ApplicationContracts\StockManagement.Authentication.ApplicationContracts.csproj", "{DC4BBBAC-DF83-4F78-9AE7-C9C6FDE7B8EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
