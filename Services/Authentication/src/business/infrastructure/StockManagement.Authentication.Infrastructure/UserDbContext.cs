@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using StockManagement.User.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace StockManagement.User.Infrastructure
 {
-    public class UserDbContext : DbContext
+    public class UserDbContext : IdentityDbContext<UserApp, IdentityRole, string>
     {
-        public UserDbContext(DbContextOptions options) : base(options)
+        public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
         {
         }
 
-        public DbSet<UserApp> UserApps { get; set; }
+        public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
