@@ -9,11 +9,11 @@ namespace StockManagement.User.Domain.DTOs
     public class UserAppDTO
     {
         public Guid UserId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Surname { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string Address { get; set; } = string.Empty;
-        public string MobilePhone { get; set; } = string.Empty;
+        //public string Name { get; set; } = string.Empty;
+        //public string Surname { get; set; } = string.Empty;
+        //public string Email { get; set; } = string.Empty;
+        //public string Address { get; set; } = string.Empty;
+        //public string PhoneNumber { get; set; } = string.Empty;
 
     }
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace StockManagement.User.Domain.Entities
 {
-    public class UserRefreshToken : IEntity<long>
+    public class UserRefreshToken : IEntity<Guid>
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
         public string Code { get; set; } = string.Empty;
         public DateTime Expiration { get; set; }
     }
