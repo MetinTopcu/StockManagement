@@ -27,12 +27,12 @@ namespace StockManagement.Shared.Domain.Services
 
         public virtual async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default)
         {
-            return await GetAll().ToListAsync();
+            return await GetAll().ToListAsync(cancellationToken);
         }
 
         public virtual async Task<IEnumerable<T>> WhereAsync(Expression<Func<T, bool>> selector, CancellationToken cancellationToken = default)
         {
-            return await Where(selector).ToListAsync();
+            return await Where(selector).ToListAsync(cancellationToken);
         }
 
         public virtual async Task<T?> GetByIdAsync(U id, CancellationToken cancellationToken = default)
@@ -69,32 +69,32 @@ namespace StockManagement.Shared.Domain.Services
             await _dbSet.AddRangeAsync(entities, cancellationToken);
             return entities;
         }
-        public virtual void UpdateOne(T entity, CancellationToken cancellationToken = default)
+        public virtual void UpdateOne(T entity)
         {
             _dbSet.Update(entity);
         }
-        public virtual void UpdateMany(IEnumerable<T> entities, CancellationToken cancellationToken = default)
+        public virtual void UpdateMany(IEnumerable<T> entities)
         {
             foreach(T entity in entities)
             {
                 _dbSet.Update(entity);
             }
         }
-        public virtual void DeleteOne(T entity, CancellationToken cancellationToken = default)
+        public virtual void DeleteOne(T entity)
         {
             _dbSet.Remove(entity);
         }
 
-        public virtual void DeleteMany(IEnumerable<T> entities, CancellationToken cancellation = default)
+        public virtual void DeleteMany(IEnumerable<T> entities)
         {
             _dbSet.RemoveRange(entities);
         }
-        private IQueryable<T> GetAll(CancellationToken cancellationToken = default)
+        private IQueryable<T> GetAll()
         {
             return _dbSet.AsNoTracking().AsQueryable();
         }
 
-        private IQueryable<T> Where(Expression<Func<T, bool>> selector, CancellationToken cancellationToken = default)
+        public virtual IQueryable<T> Where(Expression<Func<T, bool>> selector)
         {
             return _dbSet.Where(selector);
         }
