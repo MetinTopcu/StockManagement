@@ -11,7 +11,7 @@ namespace StockManagement.User.ApplicationContracts.ServiceContracts
 {
     public interface ITokenService
     {
-        Task<TokenDTO> CreateToken(UserApp userApp);
+        Task<TokenDTO> CreateTokenAsync(UserApp userApp);
         ClientTokenDTO CreateTokenByClient(Client client);
 
     }

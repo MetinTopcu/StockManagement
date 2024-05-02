@@ -10,7 +10,7 @@ namespace StockManagement.User.ApplicationContracts.ServiceContracts
     public interface IUserService
     {
         Task<UserAppDTO> CreateUserAsync(CreateUserDTO createUserDto);
-        Task<UserAppDTO> GetUserByEmailAsync(string email);
+        Task<UserAppDTO> GetUserByNameAsync(string userName);
         Task CreateUserRoles(CreateUserRolesDTO createUserRolesDTO);
         Task CreateRoles(CreateRolesDTO createRolesDTO);
     }

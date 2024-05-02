@@ -9,7 +9,7 @@ namespace StockManagement.User.ApplicationContracts.ServiceContracts
 {
     public interface IAuthenticationService
     {
-        Task<TokenDTO> CreateTokenAsync(LoginDTO loginDto);
+        Task<TokenDTO> LoginAsync(LoginDTO loginDto);
         Task<TokenDTO> CreateTokenByRefreshToken(string refreshToken);
         Task RevokeRefreshToken(string refreshToken);
         ClientTokenDTO CreateTokenByClient(ClientLoginDTO clientLoginDto);
