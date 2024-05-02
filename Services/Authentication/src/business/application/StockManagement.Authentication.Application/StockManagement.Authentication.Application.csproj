@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\Shared\StockManagement.Shared\StockManagement.Shared.csproj" />
     <ProjectReference Include="..\..\..\..\..\User\src\business\application\StockManagement.User.ApplicationContracts\StockManagement.Authentication.ApplicationContracts.csproj" />
   </ItemGroup>
 

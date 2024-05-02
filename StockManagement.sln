@@ -39,7 +39,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "business", "business", "{EFCBBC8C-0CC3-44C1-97C6-0330BED96219}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.User.API", "Services\Authentication\src\application\StockManagement.Authentication.API\StockManagement.User.API.csproj", "{AD02F1B4-235F-43B6-9640-E78036F624BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Authentication.API", "Services\Authentication\src\application\StockManagement.Authentication.API\StockManagement.Authentication.API.csproj", "{AD02F1B4-235F-43B6-9640-E78036F624BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "application", "application", "{691102CD-2562-4E99-B816-36A66E91F2FA}"
 EndProject
