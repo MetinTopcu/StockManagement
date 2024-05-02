@@ -35,95 +35,130 @@ namespace StockManagement.User.Application.Services
             _userRefreshTokenRepository = userRefreshTokenRepository;
         }
 
-        public async Task<TokenDTO> CreateTokenAsync(LoginDTO loginDto)
+        public async Task<TokenDTO> LoginAsync(LoginDTO loginDto) //login
         {
-            if (loginDto == null) throw new ArgumentNullException(nameof(loginDto));
-
-            var user = await _userManager.FindByEmailAsync(loginDto.Email);
-
-            if (user == null) throw new Exception("Email or Password is wrong");
-
-            if (!await _userManager.CheckPasswordAsync(user, loginDto.Password)) throw new Exception("Email or Password is wrong");
-
-            var token = await _tokenService.CreateToken(user);
-
-            var userRefreshToken = await _userRefreshTokenRepository.WhereAsync(x => x.Id == Convert.ToInt64(user.Id));
-
-            if (userRefreshToken == null)
+            var cancellationToken = new CancellationToken();
+            await _unitOfWork.BeginTransactionAsync(cancellationToken);
+            try
             {
-                await _userRefreshTokenRepository.InsertOneAsync(new UserRefreshToken
+                if (loginDto == null) throw new ArgumentNullException(nameof(loginDto));
+
+                var user = await _userManager.FindByEmailAsync(loginDto.Email);
+
+                if (user == null) throw new Exception("Email or Password is wrong");
+
+                if (!await _userManager.CheckPasswordAsync(user, loginDto.Password)) throw new Exception("Email or Password is wrong");
+
+                var token = await _tokenService.CreateTokenAsync(user);
+
+                var userRefreshToken = await _userRefreshTokenRepository.GetRefreshTokenAsyncByUser(user,cancellationToken);
+
+                if (userRefreshToken == null)
                 {
-                    Id = Convert.ToInt64(user.Id),
-                    Code = token.RefreshToken,
-                    Expiration = token.RefrestTokenExpiration
-                });
-            }
-            else
-            {
-                foreach (var item in userRefreshToken)
-                {
-                    item.Code = token.RefreshToken;
-                    item.Expiration = token.RefrestTokenExpiration;
+                    await _userRefreshTokenRepository.InsertOneAsync(new UserRefreshToken
+                    {
+                        Id = new Guid(user.Id),
+                        Code = token.RefreshToken,
+                        Expiration = token.RefrestTokenExpiration
+                    }, cancellationToken);
                 }
+                else
+                {
+                    userRefreshToken.Code = token.RefreshToken;
+                    userRefreshToken.Expiration = token.RefrestTokenExpiration;
+                }
+
+                await _unitOfWork.CommitAsync(cancellationToken);
+
+                return token;
             }
-
-            await _unitOfWork.CommitAsync();
-
-            return token;
+            catch(Exception)
+            {
+                await _unitOfWork.RollbackAsync(cancellationToken);
+                throw;
+            }
         }
 
         public ClientTokenDTO CreateTokenByClient(ClientLoginDTO clientLoginDto)
         {
-            var client = _clients.SingleOrDefault(x => x.Id == clientLoginDto.ClientId && x.Secret == clientLoginDto.ClientSecret);
-
-            if (client == null)
+            _unitOfWork.BeginTransaction();
+            try
             {
-                throw new Exception("ClientId or ClientSecret not found");
+                var client = _clients.SingleOrDefault(x => x.Id == clientLoginDto.ClientId && x.Secret == clientLoginDto.ClientSecret);
+
+                if (client == null)
+                {
+                    throw new Exception("ClientId or ClientSecret not found");
+                }
+
+                var token = _tokenService.CreateTokenByClient(client);
+
+                _unitOfWork.Commit();
+
+                return token;
             }
-
-            var token = _tokenService.CreateTokenByClient(client);
-
-            return token;
+            catch (Exception)
+            {
+                _unitOfWork.Rollback();
+                throw;
+            }
         }
 
         public async Task<TokenDTO> CreateTokenByRefreshToken(string refreshToken)
         {
-            var existRefreshToken = await _userRefreshTokenRepository.WhereAsync(x => x.Code == refreshToken);
+            var cancellationToken = new CancellationToken();
+            await _unitOfWork.BeginTransactionAsync(cancellationToken);
 
-            if (existRefreshToken == null) throw new Exception("Refresh token not found");
-
-            foreach (var item in existRefreshToken)
+            try
             {
-                var user = await _userManager.FindByIdAsync(item.Id.ToString());
+                var existRefreshToken = await _userRefreshTokenRepository.GetRefreshTokenAsync(refreshToken);
 
-                if (user == null) throw new Exception("User Id not found");
+                if (existRefreshToken == null) throw new Exception("Refresh token not found");
 
-                var tokenDto = await _tokenService.CreateToken(user);
-                foreach (var items in existRefreshToken)
-                {
-                    items.Code = tokenDto.RefreshToken;
-                    items.Expiration = tokenDto.RefrestTokenExpiration;
-                }
-                await _unitOfWork.CommitAsync();
+                var user = await _userManager.FindByIdAsync(existRefreshToken.Id.ToString());
+
+                if (user == null) throw new Exception("User not found");
+
+                var tokenDto = await _tokenService.CreateTokenAsync(user);
+
+                existRefreshToken.Code = tokenDto.RefreshToken;
+                existRefreshToken.Expiration = tokenDto.RefrestTokenExpiration;
+
+                await _unitOfWork.CommitAsync(cancellationToken);
 
                 return tokenDto;
             }
-            throw new Exception("Mistake");
+            catch (Exception)
+            {
+                await _unitOfWork.RollbackAsync(cancellationToken);
+                throw;
+            }
         }
 
         public async Task RevokeRefreshToken(string refreshToken)
         {
-            var existRefreshToken = await _userRefreshTokenRepository.WhereAsync(x => x.Code == refreshToken);
+            var cancellationToken = new CancellationToken();
+            await _unitOfWork.BeginTransactionAsync(cancellationToken);
 
-            if (existRefreshToken == null) throw new Exception("Refresh token not found");
-
-            foreach (var item in existRefreshToken)
+            try
             {
-                _userRefreshTokenRepository.DeleteOne(item);
+                var existRefreshToken = await _userRefreshTokenRepository.WhereAsync(x => x.Code == refreshToken);
 
+                if (existRefreshToken == null) throw new Exception("Refresh token not found");
+
+                foreach (var item in existRefreshToken)
+                {
+                    _userRefreshTokenRepository.DeleteOne(item);
+
+                }
+                await _unitOfWork.CommitAsync(cancellationToken);
             }
-            await _unitOfWork.CommitAsync();
-
+            catch (Exception)
+            {
+                await _unitOfWork.RollbackAsync(cancellationToken);
+                throw;
+            }
         }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using StockManagement.User.ApplicationContracts.ServiceContracts;
@@ -40,7 +40,7 @@ namespace StockManagement.User.Application.Services
 
         }
 
-        private async Task<IEnumerable<Claim>> GetClaim(UserApp userApp, List<string> audiences) //üyelik sistemi ile token
+        private async Task<IEnumerable<Claim>> GetClaimAsync(UserApp userApp, List<string> audiences) //üyelik sistemi ile token
         {
 
             var userRoles = await _userManager.GetRolesAsync(userApp);
@@ -50,9 +50,7 @@ namespace StockManagement.User.Application.Services
                 new Claim(ClaimTypes.NameIdentifier, userApp.Id),
                 new Claim(JwtRegisteredClaimNames.Email, userApp.Email),
                 new Claim(ClaimTypes.Name, userApp.UserName),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), //her tokenin kendi id si olsun diye
-                new Claim("address",userApp.Address),
-                new Claim("phoneNumber",userApp.PhoneNumber),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()) //her tokenin kendi id si olsun diye
             };
 
             userList.AddRange(audiences.Select(x => new Claim(JwtRegisteredClaimNames.Aud, x)));
@@ -71,7 +69,7 @@ namespace StockManagement.User.Application.Services
             return claims;
         }
 
-        public async Task<TokenDTO> CreateToken(UserApp userApp)
+        public async Task<TokenDTO> CreateTokenAsync(UserApp userApp)
         {
             var accessTokenExpiration = DateTime.Now.AddMinutes(_customTokenOptions.AccessTokenExpiration);
             var refreshTokenExpiration = DateTime.Now.AddMinutes(_customTokenOptions.RefreshTokenExpiration);
@@ -84,7 +82,7 @@ namespace StockManagement.User.Application.Services
                 issuer: _customTokenOptions.Issuer,
                 expires: accessTokenExpiration,
                 notBefore: DateTime.Now,
-                claims: await GetClaim(userApp, _customTokenOptions.Audience),
+                claims: await GetClaimAsync(userApp, _customTokenOptions.Audience),
                 signingCredentials: signingCredentials);
 
             var handler = new JwtSecurityTokenHandler();
